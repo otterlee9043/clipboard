@@ -1,0 +1,478 @@
+{\rtf1\ansi\deff0\deftab480
+
+{\fonttbl
+{\f000 Courier New;}
+{\f001 Courier New;}
+{\f002 Courier New;}
+{\f003 Courier New;}
+{\f004 Courier New;}
+{\f005 Courier New;}
+{\f006 Courier New;}
+{\f007 Courier New;}
+{\f008 Courier New;}
+{\f009 Courier New;}
+{\f010 Courier New;}
+{\f011 Courier New;}
+}
+
+{\colortbl
+\red000\green000\blue000;
+\red255\green255\blue255;
+\red000\green128\blue000;
+\red255\green255\blue255;
+\red255\green128\blue000;
+\red255\green255\blue255;
+\red000\green000\blue255;
+\red255\green255\blue255;
+\red128\green128\blue128;
+\red255\green255\blue255;
+\red000\green000\blue128;
+\red255\green255\blue255;
+\red000\green000\blue000;
+\red255\green255\blue255;
+\red000\green000\blue000;
+\red255\green255\blue255;
+\red128\green000\blue255;
+\red255\green255\blue255;
+\red128\green064\blue000;
+\red255\green255\blue255;
+\red000\green000\blue128;
+\red192\green192\blue192;
+\red000\green000\blue000;
+\red255\green255\blue255;
+}
+
+\f7471205\fs20\cb23\cf22 \highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 readTextFile\highlight11\cf10\b (\highlight13\cf12\b0 file\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b var\highlight1\cf0\b0  \highlight13\cf12 rawFile\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b new\highlight1\cf0\b0  \highlight13\cf12 XMLHttpRequest\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+  \highlight13\cf12 rawFile\highlight11\cf10\b .\highlight19\cf18 open\highlight11\cf10 (\highlight9\cf8\b0 "GET"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 file\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b var\highlight1\cf0\b0  \highlight13\cf12 allText\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight13\cf12 rawFile\highlight11\cf10\b .\highlight13\cf12\b0 onreadystatechange\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b function\highlight1\cf0\b0  \highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 rawFile\highlight11\cf10\b .\highlight13\cf12\b0 readyState\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight5\cf4 4\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 rawFile\highlight11\cf10\b .\highlight19\cf18 status\highlight1\cf0\b0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight5\cf4 200\highlight1\cf0  \highlight11\cf10\b ||\highlight1\cf0\b0  \highlight13\cf12 rawFile\highlight11\cf10\b .\highlight19\cf18 status\highlight1\cf0\b0  \highlight11\cf10\b ==\highlight1\cf0\b0  \highlight5\cf4 0\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+        \highlight13\cf12 allText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 rawFile\highlight11\cf10\b .\highlight13\cf12\b0 responseText\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+      \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \};\highlight1\cf0\b0 \par
+  \highlight13\cf12 rawFile\highlight11\cf10\b .\highlight13\cf12\b0 send\highlight11\cf10\b (\highlight7\cf6 null\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 allText\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 codeText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 readTextFile\highlight11\cf10\b (\highlight9\cf8\b0 "./example.js"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 codeLines\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 codeText\highlight11\cf10\b .\highlight13\cf12\b0 split\highlight11\cf10\b (\highlight9\cf8\b0 "\\n"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 code\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight9\cf8\b0 "code"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 lineSelected\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 ;\highlight1\cf0\b0 \par
+\highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b -\highlight5\cf4\b0 1\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 end\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b -\highlight5\cf4\b0 1\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 selectedInfo\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b [];\highlight1\cf0\b0 \par
+\highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 tbody\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight9\cf8\b0 "tbody"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 isString\highlight11\cf10\b (\highlight13\cf12\b0 inputText\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight7\cf6 typeof\highlight1\cf0\b0  \highlight13\cf12 inputText\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "string"\highlight1\cf0  \highlight11\cf10\b ||\highlight1\cf0\b0  \highlight13\cf12 inputText\highlight1\cf0  \highlight7\cf6\b instanceof\highlight1\cf0\b0  \highlight17\cf16 String\highlight11\cf10\b )\highlight1\cf0\b0  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight7\cf6\b true\highlight11\cf10 ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 ;\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 compare\highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 num1\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b parseInt\highlight11\cf10 (\highlight13\cf12\b0 a\highlight11\cf10\b .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight9\cf8\b0 ".lineNumber span"\highlight11\cf10\b ).\highlight13\cf12\b0 innerText\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 num2\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b parseInt\highlight11\cf10 (\highlight13\cf12\b0 b\highlight11\cf10\b .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight9\cf8\b0 ".lineNumber span"\highlight11\cf10\b ).\highlight13\cf12\b0 innerText\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 num1\highlight1\cf0  \highlight11\cf10\b -\highlight1\cf0\b0  \highlight13\cf12 num2\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 expand\highlight11\cf10\b (\highlight13\cf12\b0 lineId\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 number\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 firstLine\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight21\cf20\b0 `.hidden#$\{lineId\}`\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 firstLine\highlight11\cf10\b .\highlight13\cf12\b0 previousSibling\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+  \highlight7\cf6\b for\highlight1\cf0\b0  \highlight11\cf10\b (\highlight7\cf6 let\highlight1\cf0\b0  \highlight13\cf12 i\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight5\cf4 0\highlight11\cf10\b ;\highlight1\cf0\b0  \highlight13\cf12 i\highlight1\cf0  \highlight11\cf10\b <\highlight1\cf0\b0  \highlight13\cf12 number\highlight11\cf10\b ;\highlight1\cf0\b0  \highlight13\cf12 i\highlight11\cf10\b ++)\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 firstLine\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b (\highlight9\cf8\b0 "hidden"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight13\cf12 firstLine\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 firstLine\highlight11\cf10\b .\highlight13\cf12\b0 nextSibling\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 createEllipsisNode\highlight11\cf10\b (\highlight13\cf12\b0 line\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 ellipsisLine\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 line\highlight11\cf10\b .\highlight13\cf12\b0 cloneNode\highlight11\cf10\b (\highlight7\cf6 true\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 ellipsisLine\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 ellipsisLine\highlight11\cf10\b .\highlight13\cf12\b0 firstChild\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b (\highlight9\cf8\b0 "selecting"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 ellipsisLine\highlight1\cf0 \par
+    \highlight11\cf10\b .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight9\cf8\b0 ".hljs-ln-numbers div"\highlight11\cf10\b )\highlight1\cf0\b0 \par
+    \highlight11\cf10\b .\highlight13\cf12\b0 setAttribute\highlight11\cf10\b (\highlight9\cf8\b0 "data-line-number"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight9\cf8 "..."\highlight11\cf10\b );\highlight1\cf0\b0  \highlight3\cf2 // <span1>\par
+\highlight1\cf0   \highlight13\cf12 ellipsisLine\highlight11\cf10\b .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight9\cf8\b0 ".hljs-ln-code"\highlight11\cf10\b ).\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight9\cf8 ""\highlight11\cf10\b ;\highlight1\cf0\b0  \highlight3\cf2 // <span2>\par
+\highlight1\cf0   \highlight13\cf12 ellipsisLine\highlight11\cf10\b .\highlight13\cf12\b0 addEventListener\highlight11\cf10\b (\highlight9\cf8\b0 "click"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 info\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectedInfo\highlight11\cf10\b .\highlight13\cf12\b0 find\highlight11\cf10\b (\highlight1\cf0\b0 \par
+      \highlight11\cf10\b (\highlight13\cf12\b0 item\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight21\cf20 `L$\{item.start\}`\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight13\cf12 ellipsisLine\highlight11\cf10\b .\highlight13\cf12\b0 id\highlight1\cf0 \par
+    \highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 lineId\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight21\cf20 `L$\{info.start\}`\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 number\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 info\highlight11\cf10\b .\highlight13\cf12\b0 number\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight13\cf12 expand\highlight11\cf10\b (\highlight13\cf12\b0 lineId\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 number\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 lineNumber\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b parseInt\highlight11\cf10 (\highlight13\cf12\b0 lineId\highlight11\cf10\b .\highlight13\cf12\b0 replace\highlight11\cf10\b (\highlight15\cf14 /[^0-9]/g\highlight11\cf10 ,\highlight1\cf0\b0  \highlight9\cf8 ""\highlight11\cf10\b ));\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedInfo\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectedInfo\highlight11\cf10\b .\highlight13\cf12\b0 filter\highlight11\cf10\b ((\highlight13\cf12\b0 item\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 lineNumber\highlight1\cf0  \highlight11\cf10\b !==\highlight1\cf0\b0  \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 start\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+  \highlight13\cf12 line\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 ellipsisLine\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 ellipsisLine\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight19\cf18\b window\highlight11\cf10 .\highlight13\cf12\b0 addEventListener\highlight11\cf10\b (\highlight9\cf8\b0 "load"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b function\highlight1\cf0\b0  \highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 numbers\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 querySelectorAll\highlight11\cf10\b (\highlight9\cf8\b0 ".hljs-ln-numbers"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight17\cf16 Array\highlight11\cf10\b .\highlight13\cf12\b0 from\highlight11\cf10\b (\highlight13\cf12\b0 numbers\highlight11\cf10\b ).\highlight13\cf12\b0 map\highlight11\cf10\b ((\highlight13\cf12\b0 item\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 number\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b parseInt\highlight11\cf10 (\highlight13\cf12\b0 item\highlight11\cf10\b .\highlight13\cf12\b0 getAttribute\highlight11\cf10\b (\highlight9\cf8\b0 "data-line-number"\highlight11\cf10\b ));\highlight1\cf0\b0 \par
+    \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b .\highlight13\cf12\b0 id\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight21\cf20 `L$\{number\}`\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 addEventListener\highlight11\cf10\b (\highlight9\cf8\b0 "click"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight11\cf10\b (\highlight19\cf18 event\highlight11\cf10 )\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 number\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (!\highlight13\cf12\b0 lineSelected\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+        \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 number\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+        \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 add\highlight11\cf10\b (\highlight9\cf8\b0 "selecting"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+        \highlight13\cf12 end\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 number\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+        \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 numberLinesSelected\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight17\cf16 Math\highlight11\cf10\b .\highlight13\cf12\b0 abs\highlight11\cf10\b (\highlight13\cf12\b0 start\highlight1\cf0  \highlight11\cf10\b -\highlight1\cf0\b0  \highlight13\cf12 end\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b +\highlight1\cf0\b0  \highlight5\cf4 1\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+        \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight17\cf16 Math\highlight11\cf10\b .\highlight13\cf12\b0 min\highlight11\cf10\b (\highlight13\cf12\b0 start\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 end\highlight11\cf10\b );\highlight1\cf0\b0 \par
+        \highlight13\cf12 selectedInfo\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectedInfo\highlight11\cf10\b .\highlight13\cf12\b0 filter\highlight11\cf10\b ((\highlight13\cf12\b0 item\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+          \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 contained\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0 \par
+            \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b <\highlight1\cf0\b0  \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 start\highlight1\cf0  \highlight11\cf10\b &&\highlight1\cf0\b0  \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b +\highlight1\cf0\b0  \highlight13\cf12 numberLinesSelected\highlight1\cf0  \highlight11\cf10\b -\highlight1\cf0\b0  \highlight5\cf4 1\highlight1\cf0  \highlight11\cf10\b >\highlight1\cf0\b0  \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 start\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+          \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 contained\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+            \highlight13\cf12 expand\highlight11\cf10\b (\highlight21\cf20\b0 `L$\{String(item.start)\}`\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 item\highlight11\cf10\b .\highlight13\cf12\b0 number\highlight11\cf10\b );\highlight1\cf0\b0 \par
+          \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+          \highlight7\cf6\b return\highlight1\cf0\b0  \highlight11\cf10\b !\highlight13\cf12\b0 contained\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+        \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+\par
+        \highlight13\cf12 selectedInfo\highlight11\cf10\b .\highlight13\cf12\b0 push\highlight11\cf10\b (\{\highlight1\cf0\b0  \highlight13\cf12 start\highlight11\cf10\b :\highlight1\cf0\b0  \highlight13\cf12 start\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 number\highlight11\cf10\b :\highlight1\cf0\b0  \highlight13\cf12 numberLinesSelected\highlight1\cf0  \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+        \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 selectedInfo\highlight11\cf10\b );\highlight1\cf0\b0 \par
+        \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 line\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 querySelector\highlight11\cf10\b (\highlight21\cf20\b0 `#L$\{start\}`\highlight11\cf10\b );\highlight1\cf0\b0 \par
+        \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 line\highlight11\cf10\b );\highlight1\cf0\b0 \par
+        \highlight13\cf12 createEllipsisNode\highlight11\cf10\b (\highlight13\cf12\b0 line\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\par
+        \highlight7\cf6\b for\highlight1\cf0\b0  \highlight11\cf10\b (\highlight7\cf6 let\highlight1\cf0\b0  \highlight13\cf12 i\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight5\cf4 0\highlight11\cf10\b ;\highlight1\cf0\b0  \highlight13\cf12 i\highlight1\cf0  \highlight11\cf10\b <\highlight1\cf0\b0  \highlight13\cf12 numberLinesSelected\highlight11\cf10\b ;\highlight1\cf0\b0  \highlight13\cf12 i\highlight11\cf10\b ++)\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+          \highlight13\cf12 line\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 add\highlight11\cf10\b (\highlight9\cf8\b0 "hidden"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+          \highlight13\cf12 line\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 line\highlight11\cf10\b .\highlight13\cf12\b0 nextElementSibling\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+        \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+        \highlight17\cf16 Array\highlight11\cf10\b .\highlight13\cf12\b0 from\highlight11\cf10\b (\highlight13\cf12\b0 numbers\highlight11\cf10\b ).\highlight13\cf12\b0 map\highlight11\cf10\b ((\highlight13\cf12\b0 number\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+          \highlight13\cf12 number\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b (\highlight9\cf8\b0 "selecting"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+        \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+      \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+      \highlight13\cf12 lineSelected\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b !\highlight13\cf12\b0 lineSelected\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+\highlight11\cf10\b \});\highlight1\cf0\b0 \par
+\par
+\highlight13\cf12 code\highlight11\cf10\b .\highlight13\cf12\b0 addEventListener\highlight11\cf10\b (\highlight9\cf8\b0 "mouseup"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 selectText\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 );\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 splitText\highlight11\cf10\b (\highlight13\cf12\b0 textNode\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ,\highlight1\cf0\b0  \highlight13\cf12 start\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 same\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 span1\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 createElement\highlight11\cf10\b (\highlight9\cf8\b0 "span"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 span2\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 createElement\highlight11\cf10\b (\highlight9\cf8\b0 "span"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 span3\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight3\cf2 //const index = fullText.indexOf(text);\par
+\highlight1\cf0   \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 between\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 same\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 fullText\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span1\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 span1\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+      \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 span1\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 index\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight5\cf4 0\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span1\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight19\cf18 text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 index\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0  \highlight11\cf10\b -\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span1\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span3\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 createElement\highlight11\cf10\b (\highlight9\cf8\b0 "span"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span1\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span3\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 index\highlight1\cf0  \highlight11\cf10\b +\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 between\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b !\highlight13\cf12\b0 between\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 start\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span1\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span1\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight19\cf18 text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+  \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 span1\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 span2\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 between\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 span3\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+    \highlight3\cf2 //console.log(span1, span2, span3);\par
+\highlight1\cf0     \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 span2\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight13\cf12 textNode\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b ?\highlight1\cf0\b0  \highlight13\cf12 span2\highlight1\cf0  \highlight11\cf10\b :\highlight1\cf0\b0  \highlight13\cf12 span1\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 splitSpan\highlight11\cf10\b (\highlight13\cf12\b0 span\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ,\highlight1\cf0\b0  \highlight13\cf12 start\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 same\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 span\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 span2\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 cloneNode\highlight11\cf10\b (\highlight7\cf6 false\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 span3\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight3\cf2 //const index = fullText.indexOf(text);\par
+\highlight1\cf0   \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 between\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 same\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 fullText\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 span\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+    \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 after\highlight11\cf10\b (\highlight13\cf12\b0 span2\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 index\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight5\cf4 0\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight19\cf18 text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 index\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0  \highlight11\cf10\b -\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span3\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 cloneNode\highlight11\cf10\b (\highlight7\cf6 false\highlight11\cf10 );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span3\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 index\highlight1\cf0  \highlight11\cf10\b +\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 between\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b !\highlight13\cf12\b0 between\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 after\highlight11\cf10\b (\highlight13\cf12\b0 span3\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 span2\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 after\highlight11\cf10\b (\highlight13\cf12\b0 span2\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 start\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight3\cf2 //const span2 = spane.cloneNode("span");\par
+\highlight1\cf0       \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight3\cf2 // console.log(span.innerText);\par
+\highlight1\cf0       \highlight3\cf2 // console.log(span2.innerText);\par
+\highlight1\cf0     \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 span\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 span2\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight19\cf18 text\highlight11\cf10 .\highlight13\cf12\b0 length\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 fullText\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+  \highlight3\cf2 // console.log("span >", span);\par
+\highlight1\cf0   \highlight3\cf2 // console.log("span2 >", span2);\par
+\highlight1\cf0   \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 start\highlight1\cf0  \highlight11\cf10\b ?\highlight1\cf0\b0  \highlight13\cf12 span2\highlight1\cf0  \highlight11\cf10\b :\highlight1\cf0\b0  \highlight13\cf12 span\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 ellipsisSpan\highlight11\cf10\b (\highlight13\cf12\b0 startNode\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 endNode\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 ellipsisButton\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 createElement\highlight11\cf10\b (\highlight9\cf8\b0 "span"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 ellipsisButton\highlight11\cf10\b .\highlight13\cf12\b0 innerText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight9\cf8 "..."\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight13\cf12 ellipsisButton\highlight11\cf10\b .\highlight13\cf12\b0 addEventListener\highlight11\cf10\b (\highlight9\cf8\b0 "click"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b =>\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 newSpan\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b (\highlight9\cf8\b0 "hidden"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight13\cf12 ellipsisButton\highlight11\cf10\b .\highlight13\cf12\b0 remove\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \});\highlight1\cf0\b0 \par
+\par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 newSpan\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 createElement\highlight11\cf10\b (\highlight9\cf8\b0 "span"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 newSpan\highlight11\cf10\b .\highlight13\cf12\b0 classList\highlight11\cf10\b .\highlight13\cf12\b0 add\highlight11\cf10\b (\highlight9\cf8\b0 "hidden"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 key\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 startNode\highlight11\cf10\b .\highlight13\cf12\b0 id\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 node\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 startNode\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 nextNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 startNode\highlight11\cf10\b .\highlight13\cf12\b0 nextSibling\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\par
+  \highlight13\cf12 startNode\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 newSpan\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 newSpan\highlight11\cf10\b .\highlight13\cf12\b0 appendChild\highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 endNode\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b while\highlight1\cf0\b0  \highlight11\cf10\b (\highlight5\cf4\b0 1\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 node\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 nextNode\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+      \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b .\highlight13\cf12\b0 nodeType\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight5\cf4 1\highlight1\cf0  \highlight11\cf10\b &&\highlight1\cf0\b0  \highlight13\cf12 node\highlight11\cf10\b .\highlight13\cf12\b0 id\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight13\cf12 key\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+        \highlight13\cf12 newSpan\highlight11\cf10\b .\highlight13\cf12\b0 appendChild\highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\par
+        \highlight7\cf6\b break\highlight11\cf10 ;\highlight1\cf0\b0 \par
+      \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+      \highlight13\cf12 nextNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 node\highlight11\cf10\b .\highlight13\cf12\b0 nextSibling\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+      \highlight3\cf2 //console.log(i, node, node.id, node.nodeType);\par
+\highlight1\cf0       \highlight13\cf12 newSpan\highlight11\cf10\b .\highlight13\cf12\b0 appendChild\highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+  \highlight13\cf12 newSpan\highlight11\cf10\b .\highlight13\cf12\b0 before\highlight11\cf10\b (\highlight13\cf12\b0 ellipsisButton\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 randomId\highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight17\cf16 Math\highlight11\cf10\b .\highlight13\cf12\b0 random\highlight11\cf10\b ().\highlight17\cf16\b0 toString\highlight11\cf10\b (\highlight5\cf4\b0 12\highlight11\cf10\b ).\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 2\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight5\cf4 11\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 getIndexOfNode\highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight19\cf18\b parent\highlight1\cf0\b0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 node\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight19\cf18 parent\highlight11\cf10 .\highlight13\cf12\b0 tagName\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "SPAN"\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight19\cf18\b parent\highlight1\cf0\b0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b parent\highlight11\cf10 .\highlight13\cf12\b0 parentElement\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight13\cf12 node\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 node\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight3\cf2 // console.log("node: ", node);\par
+\highlight1\cf0   \highlight3\cf2 // console.log("parent: ", parent);\par
+\highlight1\cf0   \highlight3\cf2 // console.log(parent.childNodes);\par
+\highlight1\cf0   \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 index\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight17\cf16 Array\highlight11\cf10\b .\highlight13\cf12\b0 from\highlight11\cf10\b (\highlight19\cf18 parent\highlight11\cf10 .\highlight13\cf12\b0 childNodes\highlight11\cf10\b ).\highlight13\cf12\b0 indexOf\highlight11\cf10\b (\highlight13\cf12\b0 node\highlight11\cf10\b );\highlight1\cf0\b0 \par
+\par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 index\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 index\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight3\cf2 //const\par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 collapseWords\highlight11\cf10\b (\highlight1\cf0\b0 \par
+  \highlight13\cf12 selectedFirst\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+  \highlight13\cf12 selectedLast\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+  \highlight13\cf12 selectedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+  \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+  \highlight13\cf12 focusOffset\highlight1\cf0 \par
+\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 anchorIndex\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 getIndexOfNode\highlight11\cf10\b (\highlight13\cf12\b0 selectedFirst\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 focusIndex\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 getIndexOfNode\highlight11\cf10\b (\highlight13\cf12\b0 selectedLast\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 anchorIndex\highlight1\cf0  \highlight11\cf10\b >\highlight1\cf0\b0  \highlight13\cf12 focusIndex\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight11\cf10\b [\highlight13\cf12\b0 selectedFirst\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 selectedLast\highlight11\cf10\b ]\highlight1\cf0\b0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b [\highlight13\cf12\b0 selectedLast\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 selectedFirst\highlight11\cf10\b ];\highlight1\cf0\b0 \par
+    \highlight11\cf10\b [\highlight13\cf12\b0 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 focusOffset\highlight11\cf10\b ]\highlight1\cf0\b0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight11\cf10\b [\highlight13\cf12\b0 focusOffset\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 anchorOffset\highlight11\cf10\b ];\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "selectedFirst >"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 selectedFirst\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (!\highlight13\cf12\b0 isString\highlight11\cf10\b (\highlight13\cf12\b0 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b ||\highlight1\cf0\b0  \highlight11\cf10\b !\highlight13\cf12\b0 isString\highlight11\cf10\b (\highlight13\cf12\b0 selectedLast\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b ))\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "NOT STRING!!"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight7\cf6\b return\highlight11\cf10 ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 firstOverlappedString\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 findOverlap\highlight11\cf10\b (\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight7\cf6\b false\highlight1\cf0\b0 \par
+  \highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 lastOverlappedString\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 findOverlap\highlight11\cf10\b (\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedLast\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedLast\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight7\cf6\b false\highlight1\cf0\b0 \par
+  \highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "firstOverlappedString >"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 firstOverlappedString\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight1\cf0\b0 \par
+    \highlight9\cf8 "firstOverlappedString2 >"\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight1\cf0\b0 \par
+      \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+      \highlight13\cf12 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0 \par
+    \highlight11\cf10\b )\highlight1\cf0\b0 \par
+  \highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "lastOverlappedString >"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 lastOverlappedString\highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight1\cf0\b0 \par
+    \highlight9\cf8 "lastOverlappedString2 >"\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectedLast\highlight11\cf10\b .\highlight13\cf12\b0 nodeValue\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 focusOffset\highlight11\cf10\b )\highlight1\cf0\b0 \par
+  \highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight3\cf2 // console.log("firstTD >", selectedFirst.parentElement.closest("td"));\par
+\highlight1\cf0   \highlight3\cf2 // console.log("lastTD >", selectedLast.parentElement.closest("td"));\par
+\highlight1\cf0 \par
+  \highlight7\cf6\b let\highlight1\cf0\b0  \highlight13\cf12 startNode\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 endNode\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 key\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 randomId\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 anchorTagType\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b .\highlight13\cf12\b0 tagName\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 focusTagType\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectedLast\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b .\highlight13\cf12\b0 tagName\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 selectedFirst\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight13\cf12 selectedLast\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "SAME!"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 anchorTagType\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "TD"\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 startNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 splitText\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 selectedFirst\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 firstOverlappedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b true\highlight11\cf10 ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b true\highlight1\cf0\b0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 startNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 splitSpan\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 firstOverlappedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b true\highlight11\cf10 ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b true\highlight1\cf0\b0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+    \highlight13\cf12 ellipsisSpan\highlight11\cf10\b (\highlight13\cf12\b0 startNode\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b null\highlight11\cf10 ,\highlight1\cf0\b0  \highlight7\cf6\b true\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 anchorTagType\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "TD"\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 startNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 splitText\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 selectedFirst\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 firstOverlappedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b true\highlight1\cf0\b0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "startNode >"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 startNode\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 anchorTagType\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "SPAN"\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 startNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 splitSpan\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 selectedFirst\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 firstOverlappedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b true\highlight1\cf0\b0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "startNode >>"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 startNode\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 focusTagType\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "TD"\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight3\cf2 // text\par
+\highlight1\cf0       \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 selectedFirst\highlight1\cf0  \highlight11\cf10\b !==\highlight1\cf0\b0  \highlight13\cf12 selectedLast\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+        \highlight13\cf12 endNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 splitText\highlight11\cf10\b (\highlight1\cf0\b0 \par
+          \highlight13\cf12 selectedLast\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+          \highlight13\cf12 focusOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+          \highlight13\cf12 lastOverlappedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+          \highlight7\cf6\b false\highlight1\cf0\b0 \par
+        \highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+      \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "endNode >"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 endNode\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 focusTagType\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 "SPAN"\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight13\cf12 endNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 splitSpan\highlight11\cf10\b (\highlight1\cf0\b0 \par
+        \highlight13\cf12 selectedLast\highlight11\cf10\b .\highlight13\cf12\b0 parentElement\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 focusOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight13\cf12 lastOverlappedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+        \highlight7\cf6\b false\highlight1\cf0\b0 \par
+      \highlight11\cf10\b );\highlight1\cf0\b0 \par
+      \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "endNode >>"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 endNode\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+    \highlight13\cf12 startNode\highlight11\cf10\b .\highlight13\cf12\b0 id\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 key\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight13\cf12 endNode\highlight11\cf10\b .\highlight13\cf12\b0 id\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 key\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight13\cf12 ellipsisSpan\highlight11\cf10\b (\highlight13\cf12\b0 startNode\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 endNode\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 selectText\highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b var\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight19\cf18 document\highlight11\cf10 .\highlight13\cf12\b0 getSelection\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectionText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 getSelection\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+    \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 selectionText\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "lines"\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight17\cf16\b0 toString\highlight11\cf10\b ().\highlight13\cf12\b0 split\highlight11\cf10\b (\highlight9\cf8\b0 "\\n"\highlight11\cf10\b ));\highlight1\cf0\b0 \par
+    \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 selectionText\highlight11\cf10\b .\highlight17\cf16\b0 toString\highlight11\cf10\b ()\highlight1\cf0\b0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight9\cf8 ""\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+      \highlight7\cf6\b return\highlight11\cf10 ;\highlight1\cf0\b0 \par
+    \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+    \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight13\cf12\b0 selectionText\highlight11\cf10\b .\highlight17\cf16\b0 toString\highlight11\cf10\b ());\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 selectedString\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight17\cf16\b0 toString\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 anchorNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight13\cf12\b0 anchorNode\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 focusNode\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight13\cf12\b0 focusNode\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 anchorOffset\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight13\cf12\b0 anchorOffset\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+    \highlight7\cf6\b const\highlight1\cf0\b0  \highlight13\cf12 focusOffset\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight13\cf12\b0 focusOffset\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+\par
+    \highlight13\cf12 collapseWords\highlight11\cf10\b (\highlight1\cf0\b0 \par
+      \highlight13\cf12 anchorNode\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+      \highlight13\cf12 focusNode\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+      \highlight13\cf12 selectedString\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+      \highlight13\cf12 anchorOffset\highlight11\cf10\b ,\highlight1\cf0\b0 \par
+      \highlight13\cf12 focusOffset\highlight1\cf0 \par
+    \highlight11\cf10\b );\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight19\cf18 document\highlight11\cf10 .\highlight13\cf12\b0 selection\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 console\highlight11\cf10\b .\highlight13\cf12\b0 log\highlight11\cf10\b (\highlight9\cf8\b0 "2"\highlight11\cf10\b );\highlight1\cf0\b0 \par
+    \highlight13\cf12 selectionText\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight19\cf18\b document\highlight11\cf10 .\highlight13\cf12\b0 selection\highlight11\cf10\b .\highlight13\cf12\b0 createRange\highlight11\cf10\b ().\highlight19\cf18 text\highlight11\cf10 ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight13\cf12 selectionText\highlight11\cf10\b .\highlight13\cf12\b0 removeAllRanges\highlight11\cf10\b ();\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\par
+\highlight7\cf6\b function\highlight1\cf0\b0  \highlight13\cf12 findOverlap\highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 originalB\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 reverse\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (!\highlight13\cf12\b0 originalB\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight13\cf12 originalB\highlight1\cf0  \highlight11\cf10\b =\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 b\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0  \highlight11\cf10\b ===\highlight1\cf0\b0  \highlight5\cf4 0\highlight1\cf0  \highlight11\cf10\b &&\highlight1\cf0\b0  \highlight11\cf10\b !\highlight13\cf12\b0 reverse\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 findOverlap\highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 originalB\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 originalB\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b true\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b .\highlight13\cf12\b0 endsWith\highlight11\cf10\b (\highlight13\cf12\b0 b\highlight11\cf10\b ))\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b .\highlight13\cf12\b0 indexOf\highlight11\cf10\b (\highlight13\cf12\b0 b\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b >=\highlight1\cf0\b0  \highlight5\cf4 0\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b ;\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+  \highlight7\cf6\b if\highlight1\cf0\b0  \highlight11\cf10\b (!\highlight13\cf12\b0 reverse\highlight11\cf10\b )\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 findOverlap\highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 0\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight1\cf0  \highlight11\cf10\b -\highlight1\cf0\b0  \highlight5\cf4 1\highlight11\cf10\b ),\highlight1\cf0\b0  \highlight13\cf12 originalB\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b false\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0  \highlight7\cf6\b else\highlight1\cf0\b0  \highlight11\cf10\b \{\highlight1\cf0\b0 \par
+    \highlight7\cf6\b return\highlight1\cf0\b0  \highlight13\cf12 findOverlap\highlight11\cf10\b (\highlight13\cf12\b0 a\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b .\highlight13\cf12\b0 substring\highlight11\cf10\b (\highlight5\cf4\b0 1\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight13\cf12 b\highlight11\cf10\b .\highlight13\cf12\b0 length\highlight11\cf10\b ),\highlight1\cf0\b0  \highlight13\cf12 originalB\highlight11\cf10\b ,\highlight1\cf0\b0  \highlight7\cf6\b true\highlight11\cf10 );\highlight1\cf0\b0 \par
+  \highlight11\cf10\b \}\highlight1\cf0\b0 \par
+\highlight11\cf10\b \}\highlight1\cf0\b0 \par
+}

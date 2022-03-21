@@ -1,0 +1,1135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+
+<head>
+  <META http-equiv=Content-Type content="text/html; charset=UTF-8">
+  <title>Exported from Notepad++</title>
+  <style type="text/css">
+    span {
+      font-family: 'Courier New';
+      font-size: 10pt;
+      color: #000000;
+    }
+
+    .sc0 {}
+
+    .sc2 {
+      color: #008000;
+    }
+
+    .sc4 {
+      color: #FF8000;
+    }
+
+    .sc5 {
+      font-weight: bold;
+      color: #0000FF;
+    }
+
+    .sc6 {
+      color: #808080;
+    }
+
+    .sc10 {
+      font-weight: bold;
+      color: #000080;
+    }
+
+    .sc11 {}
+
+    .sc14 {
+      font-weight: bold;
+    }
+
+    .sc16 {
+      color: #8000FF;
+    }
+
+    .sc19 {
+      font-weight: bold;
+      color: #804000;
+    }
+
+    .sc20 {
+      color: #000080;
+      background: #C0C0C0;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span
+      class="sc5">function</span><span class="sc0"> </span><span class="sc11">readTextFile</span><span
+      class="sc10">(</span><span class="sc11">file</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">rawFile</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">new</span><span class="sc0">
+    </span><span class="sc11">XMLHttpRequest</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc11">rawFile</span><span class="sc10">.</span><span class="sc19">open</span><span
+      class="sc10">(</span><span class="sc6">"GET"</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">file</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">false</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">allText</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">rawFile</span><span class="sc10">.</span><span class="sc11">onreadystatechange</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">function</span><span
+      class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">rawFile</span><span class="sc10">.</span><span class="sc11">readyState</span><span class="sc0">
+    </span><span class="sc10">===</span><span class="sc0"> </span><span class="sc4">4</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">rawFile</span><span class="sc10">.</span><span class="sc19">status</span><span class="sc0">
+    </span><span class="sc10">===</span><span class="sc0"> </span><span class="sc4">200</span><span class="sc0">
+    </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">rawFile</span><span
+      class="sc10">.</span><span class="sc19">status</span><span class="sc0"> </span><span class="sc10">==</span><span
+      class="sc0"> </span><span class="sc4">0</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">allText</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">rawFile</span><span class="sc10">.</span><span class="sc11">responseText</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">};</span><span class="sc0">
+    </span><span class="sc11">rawFile</span><span class="sc10">.</span><span class="sc11">send</span><span
+      class="sc10">(</span><span class="sc5">null</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">allText</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">codeText</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">readTextFile</span><span
+      class="sc10">(</span><span class="sc6">"./example.js"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">codeLines</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">codeText</span><span
+      class="sc10">.</span><span class="sc11">split</span><span class="sc10">(</span><span class="sc6">"\n"</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">code</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span
+      class="sc6">"code"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">lineSelected</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">false</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">start</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">-</span><span
+      class="sc4">1</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">end</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">-</span><span
+      class="sc4">1</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">selectedInfo</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[];</span><span
+      class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">tbody</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span
+      class="sc6">"tbody"</span><span class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">isString</span><span
+      class="sc10">(</span><span class="sc11">inputText</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc5">typeof</span><span class="sc0"> </span><span class="sc11">inputText</span><span class="sc0">
+    </span><span class="sc10">===</span><span class="sc0"> </span><span class="sc6">"string"</span><span class="sc0">
+    </span><span class="sc10">||</span><span class="sc0"> </span><span class="sc11">inputText</span><span class="sc0">
+    </span><span class="sc5">instanceof</span><span class="sc0"> </span><span class="sc16">String</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc5">return</span><span class="sc0"> </span><span
+      class="sc5">true</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc5">return</span><span class="sc0">
+    </span><span class="sc5">false</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">compare</span><span
+      class="sc10">(</span><span class="sc11">a</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">b</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">num1</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">parseInt</span><span
+      class="sc10">(</span><span class="sc11">a</span><span class="sc10">.</span><span
+      class="sc11">querySelector</span><span class="sc10">(</span><span class="sc6">".lineNumber span"</span><span
+      class="sc10">).</span><span class="sc11">innerText</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">num2</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">parseInt</span><span
+      class="sc10">(</span><span class="sc11">b</span><span class="sc10">.</span><span
+      class="sc11">querySelector</span><span class="sc10">(</span><span class="sc6">".lineNumber span"</span><span
+      class="sc10">).</span><span class="sc11">innerText</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">num1</span><span class="sc0">
+    </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc11">num2</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">expand</span><span
+      class="sc10">(</span><span class="sc11">lineId</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">number</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">firstLine</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span
+      class="sc20">`.hidden#${lineId}`</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">firstLine</span><span class="sc10">.</span><span class="sc11">previousSibling</span><span
+      class="sc10">.</span><span class="sc11">remove</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc5">let</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span
+      class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span
+      class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span
+      class="sc0"> </span><span class="sc11">number</span><span class="sc10">;</span><span class="sc0"> </span><span
+      class="sc11">i</span><span class="sc10">++)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">firstLine</span><span class="sc10">.</span><span class="sc11">classList</span><span
+      class="sc10">.</span><span class="sc11">remove</span><span class="sc10">(</span><span
+      class="sc6">"hidden"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">firstLine</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">firstLine</span><span class="sc10">.</span><span class="sc11">nextSibling</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">createEllipsisNode</span><span
+      class="sc10">(</span><span class="sc11">line</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">ellipsisLine</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">line</span><span
+      class="sc10">.</span><span class="sc11">cloneNode</span><span class="sc10">(</span><span
+      class="sc5">true</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">ellipsisLine</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">ellipsisLine</span><span class="sc10">.</span><span class="sc11">firstChild</span><span
+      class="sc10">.</span><span class="sc11">classList</span><span class="sc10">.</span><span
+      class="sc11">remove</span><span class="sc10">(</span><span class="sc6">"selecting"</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">ellipsisLine</span><span class="sc0">
+    </span><span class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span
+      class="sc6">".hljs-ln-numbers div"</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc10">.</span><span class="sc11">setAttribute</span><span class="sc10">(</span><span
+      class="sc6">"data-line-number"</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc6">"..."</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc2">// &lt;span1&gt;
+    </span><span class="sc0"> </span><span class="sc11">ellipsisLine</span><span class="sc10">.</span><span
+      class="sc11">querySelector</span><span class="sc10">(</span><span class="sc6">".hljs-ln-code"</span><span
+      class="sc10">).</span><span class="sc11">innerText</span><span class="sc0"> </span><span
+      class="sc10">=</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">;</span><span
+      class="sc0"> </span><span class="sc2">// &lt;span2&gt;
+    </span><span class="sc0"> </span><span class="sc11">ellipsisLine</span><span class="sc10">.</span><span
+      class="sc11">addEventListener</span><span class="sc10">(</span><span class="sc6">"click"</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span
+      class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">info</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">selectedInfo</span><span
+      class="sc10">.</span><span class="sc11">find</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc10">(</span><span class="sc11">item</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc20">`L${item.start}`</span><span
+      class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc11">ellipsisLine</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">lineId</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc20">`L${info.start}`</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">number</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">info</span><span
+      class="sc10">.</span><span class="sc11">number</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">expand</span><span class="sc10">(</span><span class="sc11">lineId</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">number</span><span class="sc10">);</span><span
+      class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">lineNumber</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">parseInt</span><span
+      class="sc10">(</span><span class="sc11">lineId</span><span class="sc10">.</span><span
+      class="sc11">replace</span><span class="sc10">(</span><span class="sc14">/[^0-9]/g</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc6">""</span><span class="sc10">));</span><span
+      class="sc0">
+    </span><span class="sc11">selectedInfo</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">selectedInfo</span><span class="sc10">.</span><span class="sc11">filter</span><span
+      class="sc10">((</span><span class="sc11">item</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">lineNumber</span><span
+      class="sc0"> </span><span class="sc10">!==</span><span class="sc0"> </span><span class="sc11">item</span><span
+      class="sc10">.</span><span class="sc11">start</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc11">line</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">ellipsisLine</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">ellipsisLine</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc19">window</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span
+      class="sc10">(</span><span class="sc6">"load"</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc5">function</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">numbers</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">querySelectorAll</span><span class="sc10">(</span><span
+      class="sc6">".hljs-ln-numbers"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc16">Array</span><span class="sc10">.</span><span class="sc11">from</span><span
+      class="sc10">(</span><span class="sc11">numbers</span><span class="sc10">).</span><span
+      class="sc11">map</span><span class="sc10">((</span><span class="sc11">item</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">index</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">number</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">parseInt</span><span
+      class="sc10">(</span><span class="sc11">item</span><span class="sc10">.</span><span
+      class="sc11">getAttribute</span><span class="sc10">(</span><span class="sc6">"data-line-number"</span><span
+      class="sc10">));</span><span class="sc0">
+    </span><span class="sc11">item</span><span class="sc10">.</span><span class="sc11">parentElement</span><span
+      class="sc10">.</span><span class="sc11">id</span><span class="sc0"> </span><span class="sc10">=</span><span
+      class="sc0"> </span><span class="sc20">`L${number}`</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">item</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span
+      class="sc10">(</span><span class="sc6">"click"</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc10">(</span><span class="sc19">event</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">number</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span
+      class="sc11">lineSelected</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">start</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">number</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">item</span><span class="sc10">.</span><span class="sc11">classList</span><span
+      class="sc10">.</span><span class="sc11">add</span><span class="sc10">(</span><span
+      class="sc6">"selecting"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">end</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">number</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">numberLinesSelected</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc16">Math</span><span
+      class="sc10">.</span><span class="sc11">abs</span><span class="sc10">(</span><span class="sc11">start</span><span
+      class="sc0"> </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc11">end</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span
+      class="sc4">1</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">start</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc16">Math</span><span class="sc10">.</span><span class="sc11">min</span><span
+      class="sc10">(</span><span class="sc11">start</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">end</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">selectedInfo</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">selectedInfo</span><span class="sc10">.</span><span class="sc11">filter</span><span
+      class="sc10">((</span><span class="sc11">item</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">contained</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">start</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0">
+    </span><span class="sc11">item</span><span class="sc10">.</span><span class="sc11">start</span><span class="sc0">
+    </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">start</span><span
+      class="sc0"> </span><span class="sc10">+</span><span class="sc0"> </span><span
+      class="sc11">numberLinesSelected</span><span class="sc0"> </span><span class="sc10">-</span><span class="sc0">
+    </span><span class="sc4">1</span><span class="sc0"> </span><span class="sc10">&gt;</span><span class="sc0">
+    </span><span class="sc11">item</span><span class="sc10">.</span><span class="sc11">start</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">contained</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">expand</span><span class="sc10">(</span><span
+      class="sc20">`L${String(item.start)}`</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">item</span><span class="sc10">.</span><span class="sc11">number</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc10">!</span><span
+      class="sc11">contained</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+
+    </span><span class="sc11">selectedInfo</span><span class="sc10">.</span><span class="sc11">push</span><span
+      class="sc10">({</span><span class="sc0"> </span><span class="sc11">start</span><span class="sc10">:</span><span
+      class="sc0"> </span><span class="sc11">start</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">number</span><span class="sc10">:</span><span class="sc0"> </span><span
+      class="sc11">numberLinesSelected</span><span class="sc0"> </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">selectedInfo</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">line</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">querySelector</span><span class="sc10">(</span><span
+      class="sc20">`#L${start}`</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">line</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">createEllipsisNode</span><span class="sc10">(</span><span class="sc11">line</span><span
+      class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc5">let</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span
+      class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span
+      class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">&lt;</span><span
+      class="sc0"> </span><span class="sc11">numberLinesSelected</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">i</span><span class="sc10">++)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">line</span><span class="sc10">.</span><span class="sc11">classList</span><span
+      class="sc10">.</span><span class="sc11">add</span><span class="sc10">(</span><span
+      class="sc6">"hidden"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">line</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">line</span><span class="sc10">.</span><span class="sc11">nextElementSibling</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc16">Array</span><span class="sc10">.</span><span class="sc11">from</span><span
+      class="sc10">(</span><span class="sc11">numbers</span><span class="sc10">).</span><span
+      class="sc11">map</span><span class="sc10">((</span><span class="sc11">number</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">number</span><span class="sc10">.</span><span class="sc11">classList</span><span
+      class="sc10">.</span><span class="sc11">remove</span><span class="sc10">(</span><span
+      class="sc6">"selecting"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">lineSelected</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc10">!</span><span class="sc11">lineSelected</span><span class="sc10">;</span><span
+      class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+
+    </span><span class="sc11">code</span><span class="sc10">.</span><span class="sc11">addEventListener</span><span
+      class="sc10">(</span><span class="sc6">"mouseup"</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">selectText</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc5">false</span><span class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">splitText</span><span
+      class="sc10">(</span><span class="sc11">textNode</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">index</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">start</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">same</span><span class="sc0"> </span><span class="sc10">=</span><span
+      class="sc0"> </span><span class="sc5">false</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">fullText</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">textNode</span><span
+      class="sc10">.</span><span class="sc11">nodeValue</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">span1</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">createElement</span><span class="sc10">(</span><span
+      class="sc6">"span"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">span2</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">createElement</span><span class="sc10">(</span><span
+      class="sc6">"span"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">span3</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc2">//const index = fullText.indexOf(text);
+    </span><span class="sc0"> </span><span class="sc5">let</span><span class="sc0"> </span><span
+      class="sc11">between</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc5">false</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">same</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">fullText</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc19">text</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">span1</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">span1</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">remove</span><span
+      class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">span1</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">index</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc4">0</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">span1</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span
+      class="sc19">text</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">fullText</span><span class="sc10">.</span><span
+      class="sc11">length</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">index</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc11">fullText</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc0">
+    </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">.</span><span class="sc11">length</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span1</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc4">0</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">index</span><span class="sc10">);</span><span
+      class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span3</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc19">document</span><span class="sc10">.</span><span class="sc11">createElement</span><span
+      class="sc10">(</span><span class="sc6">"span"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">span1</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc4">0</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">index</span><span class="sc10">);</span><span
+      class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span3</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">index</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0">
+    </span><span class="sc19">text</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">fullText</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">between</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc10">!</span><span class="sc11">between</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">start</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">span1</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc4">0</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">index</span><span class="sc10">);</span><span
+      class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span1</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span
+      class="sc19">text</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">fullText</span><span class="sc10">.</span><span
+      class="sc11">length</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">span1</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">span2</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">between</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">span3</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">remove</span><span
+      class="sc10">();</span><span class="sc0">
+    </span><span class="sc2">//console.log(span1, span2, span3);
+    </span><span class="sc0"> </span><span class="sc5">return</span><span class="sc0"> </span><span
+      class="sc11">span2</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">textNode</span><span class="sc10">.</span><span class="sc11">remove</span><span
+      class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">start</span><span class="sc0">
+    </span><span class="sc10">?</span><span class="sc0"> </span><span class="sc11">span2</span><span class="sc0">
+    </span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">span1</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">splitSpan</span><span
+      class="sc10">(</span><span class="sc11">span</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">index</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">start</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">same</span><span class="sc0"> </span><span class="sc10">=</span><span
+      class="sc0"> </span><span class="sc5">false</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">span</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">fullText</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">span</span><span
+      class="sc10">.</span><span class="sc11">innerText</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">span2</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">span</span><span
+      class="sc10">.</span><span class="sc11">cloneNode</span><span class="sc10">(</span><span
+      class="sc5">false</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">span3</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc2">//const index = fullText.indexOf(text);
+    </span><span class="sc0"> </span><span class="sc5">let</span><span class="sc0"> </span><span
+      class="sc11">between</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc5">false</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">same</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">fullText</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc19">text</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">span</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">after</span><span
+      class="sc10">(</span><span class="sc11">span2</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">index</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc4">0</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span
+      class="sc19">text</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">fullText</span><span class="sc10">.</span><span
+      class="sc11">length</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">index</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc11">fullText</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc0">
+    </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">.</span><span class="sc11">length</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc4">0</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">index</span><span class="sc10">);</span><span
+      class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span3</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">cloneNode</span><span
+      class="sc10">(</span><span class="sc5">false</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc4">0</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">index</span><span class="sc10">);</span><span
+      class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span3</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">index</span><span class="sc0"> </span><span class="sc10">+</span><span class="sc0">
+    </span><span class="sc19">text</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">fullText</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">between</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc10">!</span><span class="sc11">between</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">after</span><span
+      class="sc10">(</span><span class="sc11">span3</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">span2</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">after</span><span
+      class="sc10">(</span><span class="sc11">span2</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">start</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc2">//const span2 = spane.cloneNode("span");
+    </span><span class="sc0"> </span><span class="sc11">span</span><span class="sc10">.</span><span
+      class="sc11">innerText</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">fullText</span><span class="sc10">.</span><span class="sc11">substring</span><span
+      class="sc10">(</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">index</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc2">// console.log(span.innerText);
+    </span><span class="sc0"> </span><span class="sc2">// console.log(span2.innerText);
+    </span><span class="sc0"> </span><span class="sc10">}</span><span class="sc0"> </span><span
+      class="sc5">else</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">span</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">text</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">span2</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fullText</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span
+      class="sc19">text</span><span class="sc10">.</span><span class="sc11">length</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">fullText</span><span class="sc10">.</span><span
+      class="sc11">length</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc2">// console.log("span &gt;", span);
+    </span><span class="sc0"> </span><span class="sc2">// console.log("span2 &gt;", span2);
+    </span><span class="sc0"> </span><span class="sc5">return</span><span class="sc0"> </span><span
+      class="sc11">start</span><span class="sc0"> </span><span class="sc10">?</span><span class="sc0"> </span><span
+      class="sc11">span2</span><span class="sc0"> </span><span class="sc10">:</span><span class="sc0"> </span><span
+      class="sc11">span</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">ellipsisSpan</span><span
+      class="sc10">(</span><span class="sc11">startNode</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">endNode</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">ellipsisButton</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">createElement</span><span class="sc10">(</span><span
+      class="sc6">"span"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">ellipsisButton</span><span class="sc10">.</span><span class="sc11">innerText</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"..."</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">ellipsisButton</span><span class="sc10">.</span><span
+      class="sc11">addEventListener</span><span class="sc10">(</span><span class="sc6">"click"</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc10">()</span><span class="sc0"> </span><span
+      class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">newSpan</span><span class="sc10">.</span><span class="sc11">classList</span><span
+      class="sc10">.</span><span class="sc11">remove</span><span class="sc10">(</span><span
+      class="sc6">"hidden"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">ellipsisButton</span><span class="sc10">.</span><span class="sc11">remove</span><span
+      class="sc10">();</span><span class="sc0">
+    </span><span class="sc10">});</span><span class="sc0">
+
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">newSpan</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc19">document</span><span
+      class="sc10">.</span><span class="sc11">createElement</span><span class="sc10">(</span><span
+      class="sc6">"span"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">newSpan</span><span class="sc10">.</span><span class="sc11">classList</span><span
+      class="sc10">.</span><span class="sc11">add</span><span class="sc10">(</span><span
+      class="sc6">"hidden"</span><span class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">key</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">startNode</span><span
+      class="sc10">.</span><span class="sc11">id</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">node</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">startNode</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">nextNode</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">startNode</span><span
+      class="sc10">.</span><span class="sc11">nextSibling</span><span class="sc10">;</span><span class="sc0">
+
+    </span><span class="sc11">startNode</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">newSpan</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">newSpan</span><span class="sc10">.</span><span class="sc11">appendChild</span><span
+      class="sc10">(</span><span class="sc11">node</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">endNode</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">while</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc4">1</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">node</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">nextNode</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">node</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">node</span><span class="sc10">.</span><span class="sc11">nodeType</span><span class="sc0">
+    </span><span class="sc10">===</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc0">
+    </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">node</span><span
+      class="sc10">.</span><span class="sc11">id</span><span class="sc0"> </span><span class="sc10">===</span><span
+      class="sc0"> </span><span class="sc11">key</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">newSpan</span><span class="sc10">.</span><span class="sc11">appendChild</span><span
+      class="sc10">(</span><span class="sc11">node</span><span class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc5">break</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">nextNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">node</span><span class="sc10">.</span><span class="sc11">nextSibling</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc2">//console.log(i, node, node.id, node.nodeType);
+    </span><span class="sc0"> </span><span class="sc11">newSpan</span><span class="sc10">.</span><span
+      class="sc11">appendChild</span><span class="sc10">(</span><span class="sc11">node</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc11">newSpan</span><span class="sc10">.</span><span class="sc11">before</span><span
+      class="sc10">(</span><span class="sc11">ellipsisButton</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">randomId</span><span
+      class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc16">Math</span><span
+      class="sc10">.</span><span class="sc11">random</span><span class="sc10">().</span><span
+      class="sc16">toString</span><span class="sc10">(</span><span class="sc4">12</span><span
+      class="sc10">).</span><span class="sc11">substring</span><span class="sc10">(</span><span
+      class="sc4">2</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">11</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">getIndexOfNode</span><span
+      class="sc10">(</span><span class="sc11">node</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc19">parent</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">node</span><span
+      class="sc10">.</span><span class="sc11">parentElement</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc19">parent</span><span class="sc10">.</span><span class="sc11">tagName</span><span class="sc0">
+    </span><span class="sc10">===</span><span class="sc0"> </span><span class="sc6">"SPAN"</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc19">parent</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc19">parent</span><span class="sc10">.</span><span class="sc11">parentElement</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">node</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">node</span><span class="sc10">.</span><span class="sc11">parentElement</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc2">// console.log("node: ", node);
+    </span><span class="sc0"> </span><span class="sc2">// console.log("parent: ", parent);
+    </span><span class="sc0"> </span><span class="sc2">// console.log(parent.childNodes);
+    </span><span class="sc0"> </span><span class="sc5">const</span><span class="sc0"> </span><span
+      class="sc11">index</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc16">Array</span><span class="sc10">.</span><span class="sc11">from</span><span class="sc10">(</span><span
+      class="sc19">parent</span><span class="sc10">.</span><span class="sc11">childNodes</span><span
+      class="sc10">).</span><span class="sc11">indexOf</span><span class="sc10">(</span><span
+      class="sc11">node</span><span class="sc10">);</span><span class="sc0">
+
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">index</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">index</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc2">//const
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">collapseWords</span><span
+      class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">focusOffset</span><span class="sc0">
+    </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">anchorIndex</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">getIndexOfNode</span><span class="sc10">(</span><span class="sc11">selectedFirst</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">focusIndex</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">getIndexOfNode</span><span class="sc10">(</span><span class="sc11">selectedLast</span><span
+      class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">anchorIndex</span><span class="sc0"> </span><span class="sc10">&gt;</span><span class="sc0">
+    </span><span class="sc11">focusIndex</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc10">[</span><span class="sc11">selectedFirst</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">selectedLast</span><span class="sc10">]</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span
+      class="sc11">selectedLast</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">selectedFirst</span><span class="sc10">];</span><span class="sc0">
+    </span><span class="sc10">[</span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">focusOffset</span><span class="sc10">]</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">[</span><span
+      class="sc11">focusOffset</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">anchorOffset</span><span class="sc10">];</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"selectedFirst &gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span
+      class="sc11">isString</span><span class="sc10">(</span><span class="sc11">selectedFirst</span><span
+      class="sc10">.</span><span class="sc11">nodeValue</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">||</span><span class="sc0"> </span><span class="sc10">!</span><span class="sc11">isString</span><span
+      class="sc10">(</span><span class="sc11">selectedLast</span><span class="sc10">.</span><span
+      class="sc11">nodeValue</span><span class="sc10">))</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"NOT STRING!!"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">firstOverlappedString</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">findOverlap</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">.</span><span class="sc11">nodeValue</span><span
+      class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">false</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">lastOverlappedString</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">findOverlap</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">.</span><span class="sc11">nodeValue</span><span
+      class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">.</span><span class="sc11">nodeValue</span><span
+      class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">false</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"firstOverlappedString &gt;"</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">firstOverlappedString</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc0">
+    </span><span class="sc6">"firstOverlappedString2 &gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">.</span><span class="sc11">nodeValue</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">.</span><span class="sc11">nodeValue</span><span
+      class="sc10">.</span><span class="sc11">length</span><span class="sc0">
+    </span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"lastOverlappedString &gt;"</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc11">lastOverlappedString</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc0">
+    </span><span class="sc6">"lastOverlappedString2 &gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">.</span><span class="sc11">nodeValue</span><span
+      class="sc10">.</span><span class="sc11">substring</span><span class="sc10">(</span><span class="sc4">0</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">focusOffset</span><span
+      class="sc10">)</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc2">// console.log("firstTD &gt;", selectedFirst.parentElement.closest("td"));
+    </span><span class="sc0"> </span><span class="sc2">// console.log("lastTD &gt;",
+      selectedLast.parentElement.closest("td"));
+    </span><span class="sc0">
+    </span><span class="sc5">let</span><span class="sc0"> </span><span class="sc11">startNode</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">endNode</span><span class="sc10">;</span><span
+      class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">key</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">randomId</span><span
+      class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">anchorTagType</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">selectedFirst</span><span class="sc10">.</span><span class="sc11">parentElement</span><span
+      class="sc10">.</span><span class="sc11">tagName</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">focusTagType</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">selectedLast</span><span class="sc10">.</span><span class="sc11">parentElement</span><span
+      class="sc10">.</span><span class="sc11">tagName</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">selectedFirst</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"SAME!"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">anchorTagType</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0">
+    </span><span class="sc6">"TD"</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">startNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">splitText</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">firstOverlappedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">true</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">true</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">startNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">splitSpan</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">.</span><span
+      class="sc11">parentElement</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">firstOverlappedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">true</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">true</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">ellipsisSpan</span><span class="sc10">(</span><span class="sc11">startNode</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc5">null</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc5">true</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">anchorTagType</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0">
+    </span><span class="sc6">"TD"</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">startNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">splitText</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">firstOverlappedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">true</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"startNode &gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">startNode</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">anchorTagType</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0">
+    </span><span class="sc6">"SPAN"</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">startNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">splitSpan</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedFirst</span><span class="sc10">.</span><span
+      class="sc11">parentElement</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">firstOverlappedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">true</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"startNode &gt;&gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">startNode</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">focusTagType</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0">
+    </span><span class="sc6">"TD"</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc2">// text
+    </span><span class="sc0"> </span><span class="sc5">if</span><span class="sc0"> </span><span
+      class="sc10">(</span><span class="sc11">selectedFirst</span><span class="sc0"> </span><span
+      class="sc10">!==</span><span class="sc0"> </span><span class="sc11">selectedLast</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">endNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">splitText</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">focusOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">lastOverlappedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">false</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"endNode &gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">endNode</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">focusTagType</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0">
+    </span><span class="sc6">"SPAN"</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">endNode</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">splitSpan</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">selectedLast</span><span class="sc10">.</span><span class="sc11">parentElement</span><span
+      class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">focusOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">lastOverlappedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc5">false</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"endNode &gt;&gt;"</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">endNode</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc11">startNode</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">key</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">endNode</span><span class="sc10">.</span><span class="sc11">id</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">key</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc11">ellipsisSpan</span><span class="sc10">(</span><span class="sc11">startNode</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">endNode</span><span class="sc10">,</span><span
+      class="sc0"> </span><span class="sc5">false</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">selectText</span><span
+      class="sc10">()</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">selectionText</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc19">document</span><span class="sc10">.</span><span class="sc11">getSelection</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">selectionText</span><span class="sc0"> </span><span class="sc10">=</span><span
+      class="sc0"> </span><span class="sc19">document</span><span class="sc10">.</span><span
+      class="sc11">getSelection</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">selectionText</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"lines"</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">selectionText</span><span class="sc10">.</span><span class="sc16">toString</span><span
+      class="sc10">().</span><span class="sc11">split</span><span class="sc10">(</span><span
+      class="sc6">"\n"</span><span class="sc10">));</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">selectionText</span><span class="sc10">.</span><span class="sc16">toString</span><span
+      class="sc10">()</span><span class="sc0"> </span><span class="sc10">===</span><span class="sc0"> </span><span
+      class="sc6">""</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">return</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc11">selectionText</span><span class="sc10">.</span><span
+      class="sc16">toString</span><span class="sc10">());</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">selectedString</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">selectionText</span><span class="sc10">.</span><span class="sc16">toString</span><span
+      class="sc10">();</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">anchorNode</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">selectionText</span><span class="sc10">.</span><span class="sc11">anchorNode</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">focusNode</span><span class="sc0">
+    </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">selectionText</span><span
+      class="sc10">.</span><span class="sc11">focusNode</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">anchorOffset</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">selectionText</span><span class="sc10">.</span><span class="sc11">anchorOffset</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc5">const</span><span class="sc0"> </span><span class="sc11">focusOffset</span><span
+      class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span
+      class="sc11">selectionText</span><span class="sc10">.</span><span class="sc11">focusOffset</span><span
+      class="sc10">;</span><span class="sc0">
+
+    </span><span class="sc11">collapseWords</span><span class="sc10">(</span><span class="sc0">
+    </span><span class="sc11">anchorNode</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">focusNode</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">selectedString</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">anchorOffset</span><span class="sc10">,</span><span class="sc0">
+    </span><span class="sc11">focusOffset</span><span class="sc0">
+    </span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc19">document</span><span class="sc10">.</span><span class="sc11">selection</span><span
+      class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span
+      class="sc10">(</span><span class="sc6">"2"</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc11">selectionText</span><span class="sc0"> </span><span class="sc10">=</span><span
+      class="sc0"> </span><span class="sc19">document</span><span class="sc10">.</span><span
+      class="sc11">selection</span><span class="sc10">.</span><span class="sc11">createRange</span><span
+      class="sc10">().</span><span class="sc19">text</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc11">selectionText</span><span class="sc10">.</span><span
+      class="sc11">removeAllRanges</span><span class="sc10">();</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc5">function</span><span class="sc0"> </span><span class="sc11">findOverlap</span><span
+      class="sc10">(</span><span class="sc11">a</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">b</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">originalB</span><span
+      class="sc10">,</span><span class="sc0"> </span><span class="sc11">reverse</span><span class="sc10">)</span><span
+      class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span
+      class="sc11">originalB</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc11">originalB</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0">
+    </span><span class="sc11">b</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">b</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc0"> </span><span
+      class="sc10">===</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc0"> </span><span
+      class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc10">!</span><span
+      class="sc11">reverse</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">findOverlap</span><span
+      class="sc10">(</span><span class="sc11">a</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">originalB</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">originalB</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc5">true</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">a</span><span class="sc10">.</span><span class="sc11">endsWith</span><span class="sc10">(</span><span
+      class="sc11">b</span><span class="sc10">))</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">b</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span
+      class="sc11">a</span><span class="sc10">.</span><span class="sc11">indexOf</span><span class="sc10">(</span><span
+      class="sc11">b</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">&gt;=</span><span
+      class="sc0"> </span><span class="sc4">0</span><span class="sc10">)</span><span class="sc0"> </span><span
+      class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">b</span><span
+      class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(!</span><span
+      class="sc11">reverse</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">{</span><span
+      class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">findOverlap</span><span
+      class="sc10">(</span><span class="sc11">a</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">b</span><span class="sc10">.</span><span class="sc11">substring</span><span
+      class="sc10">(</span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">b</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc0"> </span><span
+      class="sc10">-</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">),</span><span
+      class="sc0"> </span><span class="sc11">originalB</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc5">false</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0">
+    </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">findOverlap</span><span
+      class="sc10">(</span><span class="sc11">a</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">b</span><span class="sc10">.</span><span class="sc11">substring</span><span
+      class="sc10">(</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc11">b</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">),</span><span
+      class="sc0"> </span><span class="sc11">originalB</span><span class="sc10">,</span><span class="sc0"> </span><span
+      class="sc5">true</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    </span></div>
+</body>
+
+</html>
