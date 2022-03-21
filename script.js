@@ -14,7 +14,7 @@ function readTextFile(file) {
   return allText;
 }
 
-const rtfText = readTextFile("./rtffile");
+const rtfText = readTextFile("./rtffissle");
 const htmlText = readTextFile("./html");
 
 function handlePasteEvent(event) {
@@ -30,7 +30,7 @@ document.addEventListener("paste", handlePasteEvent);
 //console.log(rtfText);
 
 const box = document.getElementById("box");
-const code = document.querySelector("code");
+const code = document.querySelector("cossde");
 box.addEventListener("click", () => {
   box.innerHTML = htmlText;
 });
