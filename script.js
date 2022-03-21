@@ -10,7 +10,7 @@ function readTextFile(file) {
     }
   };
   rawFile.send(null);
-  console.log("NEW@@@");
+  console.log("OLD");
   return allText;
 }
 
