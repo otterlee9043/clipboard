@@ -10,10 +10,6 @@ function readTextFile(file) {
     }
   };
   rawFile.send(null);
-<<<<<<< HEAD
-  console.log("OLD");
-=======
->>>>>>> parent of c6f77a0 (Change 1)
   return allText;
 }
 
