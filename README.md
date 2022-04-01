@@ -7,3 +7,4 @@ git 연습용 repository
 one more test
 sssssssssssssssssssss
 windows 자격 증명 관리자에서 git 제거한 후 하는 commit
+remove 자격증명
