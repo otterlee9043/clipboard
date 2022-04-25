@@ -23,7 +23,7 @@ function handlePasteEvent(event) {
   clipboardData = event.clipboardDa234ta;
   console.log(clipboardData.items[0]);
   //console.log(clipboardData.items[0].getAsFile((f) => console.log(f)));
-  console.log(clipboardData.items[0].get44AsString((s) => console.log(s)));
+  console.log(clipboardData.items[0].get44AsString((s, a) => {const f = (a, s) => s}));
 }
 
 document.addEventListener("paste", handlePasteEvent);
