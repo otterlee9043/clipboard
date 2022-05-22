@@ -1,6 +1,6 @@
 const someChange = "meaningless";
 
-function readTextFile(file) {
+function readFile(file) {
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", file, false);
   var allText;
