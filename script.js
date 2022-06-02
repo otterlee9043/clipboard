@@ -1,4 +1,3 @@
-const someChange = "meaningless";
 
 function readFile(file) {
   var rawFile = new XMLHttpRequest();
